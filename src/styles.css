@@ -195,11 +195,16 @@
   border: 1px solid color-mix(in oklab, white 8%, transparent);
 }
 
-/* Custom cursor hide on desktop over portfolio */
+/* Custom cursor hide on desktop */
 @media (hover: hover) and (pointer: fine) {
   .cursor-none-zone,
   .cursor-none-zone * {
     cursor: none;
+  }
+  html.has-custom-cursor,
+  html.has-custom-cursor body,
+  html.has-custom-cursor * {
+    cursor: none !important;
   }
 }
 
