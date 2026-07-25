@@ -908,6 +908,7 @@ function PortfolioCard({
       onMouseLeave={() => setHover(false)}
       onMouseMove={onMove}
       onClick={handleTap}
+      data-cursor="Play"
       data-visible={visible}
       style={{
         transitionDelay: `${Math.min(index, 8) * 60}ms`,
