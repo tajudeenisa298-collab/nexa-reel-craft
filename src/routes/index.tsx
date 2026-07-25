@@ -470,7 +470,7 @@ function Hero({ isTouch }: { isTouch: boolean }) {
       />
 
       <div
-        className="mx-auto w-full max-w-7xl px-6 pt-32 pb-24 sm:px-10"
+        className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-32 pb-24 sm:px-10"
         style={{
           transform: `translate3d(${parallax.x * 8}px, ${parallax.y * 6}px, 0)`,
           transition: "transform 500ms cubic-bezier(0.16,1,0.3,1)",
