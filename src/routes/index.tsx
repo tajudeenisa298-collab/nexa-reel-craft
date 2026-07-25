@@ -309,6 +309,7 @@ function Home() {
 
   return (
     <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
+      <CustomCursor />
       {/* Scroll progress rail */}
       <div
         aria-hidden
@@ -334,6 +335,127 @@ function Home() {
       {openPiece && (
         <Lightbox piece={openPiece} onClose={() => setOpenPiece(null)} />
       )}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Custom cursor (desktop)                                            */
+/* ------------------------------------------------------------------ */
+
+function CustomCursor() {
+  const dotRef = useRef<HTMLDivElement | null>(null);
+  const ringRef = useRef<HTMLDivElement | null>(null);
+  const labelRef = useRef<HTMLDivElement | null>(null);
+  const [label, setLabel] = useState("");
+  const [active, setActive] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia("(hover: none), (pointer: coarse)").matches) return;
+    const root = document.documentElement;
+    root.classList.add("has-custom-cursor");
+
+    let mx = window.innerWidth / 2;
+    let my = window.innerHeight / 2;
+    let rx = mx;
+    let ry = my;
+    let raf = 0;
+
+    const loop = () => {
+      rx += (mx - rx) * 0.2;
+      ry += (my - ry) * 0.2;
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate3d(${mx}px, ${my}px, 0) translate(-50%, -50%)`;
+      }
+      if (ringRef.current) {
+        ringRef.current.style.transform = `translate3d(${rx}px, ${ry}px, 0) translate(-50%, -50%)`;
+      }
+      if (labelRef.current) {
+        labelRef.current.style.transform = `translate3d(${rx + 22}px, ${ry + 20}px, 0)`;
+      }
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+
+    const resolveLabel = (el: HTMLElement): string | null => {
+      const custom = el.getAttribute("data-cursor");
+      if (custom !== null) return custom;
+      const tag = el.tagName.toLowerCase();
+      if (tag === "a") return "Open";
+      if (tag === "button" || el.getAttribute("role") === "button") return "Click";
+      if (tag === "input" || tag === "textarea" || tag === "select") return "Type";
+      if (tag === "video") return "Play";
+      return null;
+    };
+
+    const onMove = (e: MouseEvent) => {
+      mx = e.clientX;
+      my = e.clientY;
+      setVisible(true);
+      const t = e.target as HTMLElement | null;
+      const el =
+        t?.closest<HTMLElement>(
+          "[data-cursor], a, button, [role='button'], input, textarea, select, video, label",
+        ) ?? null;
+      if (el) {
+        const text = resolveLabel(el);
+        if (text) {
+          setLabel(text);
+          setActive(true);
+          return;
+        }
+      }
+      setActive(false);
+    };
+    const onOut = () => setVisible(false);
+    const onDown = () => {
+      if (ringRef.current) ringRef.current.style.setProperty("--press", "0.8");
+    };
+    const onUp = () => {
+      if (ringRef.current) ringRef.current.style.setProperty("--press", "1");
+    };
+
+    window.addEventListener("mousemove", onMove);
+    document.addEventListener("mouseleave", onOut);
+    window.addEventListener("mousedown", onDown);
+    window.addEventListener("mouseup", onUp);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("mousemove", onMove);
+      document.removeEventListener("mouseleave", onOut);
+      window.removeEventListener("mousedown", onDown);
+      window.removeEventListener("mouseup", onUp);
+      root.classList.remove("has-custom-cursor");
+    };
+  }, []);
+
+  return (
+    <div
+      aria-hidden
+      className={`pointer-events-none fixed inset-0 z-[100] hidden md:block ${visible ? "opacity-100" : "opacity-0"} transition-opacity duration-200`}
+    >
+      <div
+        ref={ringRef}
+        className={`fixed left-0 top-0 rounded-full border border-primary transition-[width,height,background-color,border-color] duration-300 ease-out ${
+          active ? "h-12 w-12 bg-primary/10" : "h-8 w-8 bg-transparent"
+        }`}
+        style={{ willChange: "transform" }}
+      />
+      <div
+        ref={dotRef}
+        className="fixed left-0 top-0 h-[6px] w-[6px] rounded-full bg-primary shadow-[0_0_12px_var(--primary)]"
+        style={{ willChange: "transform" }}
+      />
+      <div
+        ref={labelRef}
+        className={`fixed left-0 top-0 whitespace-nowrap rounded-full bg-primary px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-primary-foreground transition-opacity duration-200 ${
+          active && label ? "opacity-100" : "opacity-0"
+        }`}
+        style={{ willChange: "transform" }}
+      >
+        {label}
+      </div>
     </div>
   );
 }
