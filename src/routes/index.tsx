@@ -17,6 +17,11 @@ import cardMusic1 from "@/assets/card-music1.jpg";
 import cardTrailer1 from "@/assets/card-trailer1.jpg";
 import cardDrama1 from "@/assets/card-drama1.jpg";
 import cardBrand1 from "@/assets/card-brand1.jpg";
+import mvNewborn from "@/assets/mv-newborn.mp4.asset.json";
+import mvLuna from "@/assets/mv-luna-dangerous.mp4.asset.json";
+import mvAiMusic from "@/assets/mv-ai-music.mp4.asset.json";
+import mvSampler from "@/assets/mv-sampler.mp4.asset.json";
+import mvUntouchable from "@/assets/mv-untouchable.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
