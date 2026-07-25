@@ -223,12 +223,22 @@ const PIECES: Piece[] = [
   },
   {
     id: "char-stanley",
-    title: "Stanley",
+    title: "Stanley — Age 19",
     categories: ["character"],
     categoryTag: "Character Design",
     description:
-      "Photoreal character reference sheet — full turnaround, expression sheet, studio lighting.",
-    image: cardStanley,
+      "Street-smart, cunning, impossible to intimidate. Full character bible: face close-ups, hair and outfit breakdowns, physique notes, accessories and locked color palette for cross-episode continuity.",
+    image: charStanleySheet.url,
+    aspect: "landscape",
+  },
+  {
+    id: "char-lucienne",
+    title: "Lucienne — The Fortune Teller",
+    categories: ["character"],
+    categoryTag: "Character Design",
+    description:
+      "A ~70-year-old Martinique fortune teller — wise, unreadable, never smiles. Head turnaround, expression sheet, hand and skin detail, wardrobe rules and continuity guidelines for serialised drama.",
+    image: charLucienneSheet.url,
     aspect: "landscape",
   },
   {
