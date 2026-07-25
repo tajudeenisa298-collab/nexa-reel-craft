@@ -26,6 +26,8 @@ import mvSampler from "@/assets/mv-sampler.mp4.asset.json";
 import mvUntouchable from "@/assets/mv-untouchable.mp4.asset.json";
 import trailerAiDrama from "@/assets/trailer-ai-drama.mp4.asset.json";
 import dramaPaperShop from "@/assets/drama-paper-shop.mp4.asset.json";
+import brandFilm from "@/assets/brand-film.mp4.asset.json";
+import carneyFinal from "@/assets/carney-esselle-final.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -156,8 +158,8 @@ const PIECES: Piece[] = [
   {
     id: "music-04",
     title: "AI Sound Sampler",
-    categories: ["music"],
-    categoryTag: "Music Video",
+    categories: ["music", "animation"],
+    categoryTag: "Music Video / Animation",
     description:
       "Rapid-fire visual sampler for an AI-generated track — proof of speed, range, and cut-to-beat editorial precision.",
     videoSrc: mvSampler.url,
@@ -243,12 +245,12 @@ const PIECES: Piece[] = [
   },
   {
     id: "anim-carney",
-    title: "Carney & Esselle",
-    categories: ["animation", "brand"],
+    title: "Carney & Esselle — Final Revision",
+    categories: ["animation"],
     categoryTag: "Animated Wedding Film",
     description:
-      "A fully animated wedding story, rendered in a Pixar-inspired style.",
-    image: cardCarney,
+      "A fully animated wedding story rendered in a Pixar-inspired style — final delivered cut with locked character design, lighting and story beats.",
+    videoSrc: carneyFinal.url,
     aspect: "landscape",
   },
   {
@@ -280,12 +282,13 @@ const PIECES: Piece[] = [
   },
   {
     id: "brand-02",
-    title: "Untitled — Explainer",
+    title: "Signature Brand Film",
     categories: ["brand"],
-    categoryTag: "Animated Explainer",
-    description: "Placeholder — 90-second animated explainer for a SaaS launch.",
-    placeholder: true,
-    aspect: "landscape",
+    categoryTag: "Brand Film",
+    description:
+      "A cinematic brand spot cut for social — bold typography, tactile product beats and a confident hero moment engineered to stop the scroll.",
+    videoSrc: brandFilm.url,
+    aspect: "portrait",
   },
 ];
 
