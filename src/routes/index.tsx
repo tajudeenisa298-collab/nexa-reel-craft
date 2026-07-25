@@ -17,6 +17,11 @@ import cardMusic1 from "@/assets/card-music1.jpg";
 import cardTrailer1 from "@/assets/card-trailer1.jpg";
 import cardDrama1 from "@/assets/card-drama1.jpg";
 import cardBrand1 from "@/assets/card-brand1.jpg";
+import mvNewborn from "@/assets/mv-newborn.mp4.asset.json";
+import mvLuna from "@/assets/mv-luna-dangerous.mp4.asset.json";
+import mvAiMusic from "@/assets/mv-ai-music.mp4.asset.json";
+import mvSampler from "@/assets/mv-sampler.mp4.asset.json";
+import mvUntouchable from "@/assets/mv-untouchable.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -116,29 +121,52 @@ type Piece = {
 const PIECES: Piece[] = [
   {
     id: "music-01",
-    title: "Neon Chorus",
+    title: "Untouchable",
     categories: ["music"],
     categoryTag: "Music Video",
-    description: "Anthemic AI-directed performance video — full concept to final cut in 6 days.",
-    image: cardMusic1,
-    aspect: "landscape",
+    description:
+      "Original AI-directed music video — moody, futurist neon world built shot-by-shot with a generative pipeline.",
+    videoSrc: mvUntouchable.url,
+    aspect: "portrait",
   },
   {
     id: "music-02",
-    title: "Untitled — Artist Reel",
+    title: "Luna — Dangerous Liaisons",
     categories: ["music"],
     categoryTag: "Music Video",
-    description: "Placeholder — drop in the finished cut here.",
-    placeholder: true,
-    aspect: "landscape",
+    description:
+      "Full AI artist campaign for virtual pop persona Luna — cinematic performance visuals cut to a Suno-produced single.",
+    videoSrc: mvLuna.url,
+    aspect: "portrait",
   },
   {
     id: "music-03",
-    title: "Untitled — Single Release",
+    title: "New Born",
     categories: ["music"],
     categoryTag: "Music Video",
-    description: "Placeholder — single-release visual, artist TBA.",
-    placeholder: true,
+    description:
+      "Ethereal AI music video — birth-of-a-star visual concept, high-contrast portraiture and dreamscape transitions.",
+    videoSrc: mvNewborn.url,
+    aspect: "landscape",
+  },
+  {
+    id: "music-04",
+    title: "AI Sound Sampler",
+    categories: ["music"],
+    categoryTag: "Music Video",
+    description:
+      "Rapid-fire visual sampler for an AI-generated track — proof of speed, range, and cut-to-beat editorial precision.",
+    videoSrc: mvSampler.url,
+    aspect: "landscape",
+  },
+  {
+    id: "music-05",
+    title: "AI Music MV",
+    categories: ["music"],
+    categoryTag: "Music Video",
+    description:
+      "Concept-to-cut AI music video — character-driven performance staged entirely with generative models.",
+    videoSrc: mvAiMusic.url,
     aspect: "portrait",
   },
   {
@@ -761,7 +789,17 @@ function PortfolioCard({
       className="reveal card-spotlight group relative block w-full overflow-hidden rounded-xl border border-white/5 bg-surface text-left transition-transform duration-500 ease-out active:scale-[0.99]"
     >
       <div className={`relative ${aspect} w-full overflow-hidden`}>
-        {piece.image ? (
+        {piece.videoSrc ? (
+          <video
+            src={piece.videoSrc}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+          />
+        ) : piece.image ? (
           <img
             src={piece.image}
             alt={piece.title}
@@ -770,19 +808,6 @@ function PortfolioCard({
           />
         ) : (
           <PlaceholderThumb title={piece.title} />
-        )}
-
-        {/* Preview video crossfade — swap videoSrc in on real content */}
-        {piece.videoSrc && (hover || tapped) && (
-          <video
-            src={piece.videoSrc}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100 data-[tapped=true]:opacity-100"
-            data-tapped={tapped}
-          />
         )}
 
         {/* gradient scrim */}
