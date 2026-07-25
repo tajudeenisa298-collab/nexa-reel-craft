@@ -22,6 +22,8 @@ import mvLuna from "@/assets/mv-luna-dangerous.mp4.asset.json";
 import mvAiMusic from "@/assets/mv-ai-music.mp4.asset.json";
 import mvSampler from "@/assets/mv-sampler.mp4.asset.json";
 import mvUntouchable from "@/assets/mv-untouchable.mp4.asset.json";
+import trailerAiDrama from "@/assets/trailer-ai-drama.mp4.asset.json";
+import dramaPaperShop from "@/assets/drama-paper-shop.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -180,12 +182,13 @@ const PIECES: Piece[] = [
   },
   {
     id: "trailer-02",
-    title: "Untitled — Concept Teaser",
+    title: "Overseas — AI Short Drama Teaser",
     categories: ["trailer"],
     categoryTag: "Cinematic Trailer",
-    description: "Placeholder — 60-second teaser cut.",
-    placeholder: true,
-    aspect: "landscape",
+    description:
+      "International-market AI short-drama teaser — high-contrast cinematic grade, cut for vertical-first release and social pre-roll.",
+    videoSrc: trailerAiDrama.url,
+    aspect: "portrait",
   },
   {
     id: "drama-01",
@@ -198,11 +201,12 @@ const PIECES: Piece[] = [
   },
   {
     id: "drama-02",
-    title: "Untitled — Episodic Pilot",
+    title: "Paper Shop Uncanny Tales — Ep. 1",
     categories: ["drama"],
     categoryTag: "Micro-Drama",
-    description: "Placeholder — multi-part serial in production.",
-    placeholder: true,
+    description:
+      "Episode one of a supernatural micro-drama — Chen Jiu enters the game. Period-styled AI cinematography and character continuity across a serialised vertical release.",
+    videoSrc: dramaPaperShop.url,
     aspect: "portrait",
   },
   {
