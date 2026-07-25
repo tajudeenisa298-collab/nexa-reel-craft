@@ -245,12 +245,12 @@ const PIECES: Piece[] = [
   },
   {
     id: "anim-carney",
-    title: "Carney & Esselle",
-    categories: ["animation", "brand"],
+    title: "Carney & Esselle — Final Revision",
+    categories: ["animation"],
     categoryTag: "Animated Wedding Film",
     description:
-      "A fully animated wedding story, rendered in a Pixar-inspired style.",
-    image: cardCarney,
+      "A fully animated wedding story rendered in a Pixar-inspired style — final delivered cut with locked character design, lighting and story beats.",
+    videoSrc: carneyFinal.url,
     aspect: "landscape",
   },
   {
@@ -282,12 +282,13 @@ const PIECES: Piece[] = [
   },
   {
     id: "brand-02",
-    title: "Untitled — Explainer",
+    title: "Signature Brand Film",
     categories: ["brand"],
-    categoryTag: "Animated Explainer",
-    description: "Placeholder — 90-second animated explainer for a SaaS launch.",
-    placeholder: true,
-    aspect: "landscape",
+    categoryTag: "Brand Film",
+    description:
+      "A cinematic brand spot cut for social — bold typography, tactile product beats and a confident hero moment engineered to stop the scroll.",
+    videoSrc: brandFilm.url,
+    aspect: "portrait",
   },
 ];
 
