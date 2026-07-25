@@ -1,29 +1,31 @@
-# Welcome to your Lovable project
+# NexaPixel Portfolio
 
-This project was built with [Lovable](https://lovable.dev).
+The production portfolio for NexaPixel's AI-powered video studio. It showcases
+music videos, trailers, character work, brand films, client testimonials, and
+the Carney & Esselle wedding-film case study.
 
-## Build with Lovable
-
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Local Development
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
 
-## Built with
+## Production Build
 
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
+```sh
+npm run build
+npm run preview
+```
+
+## Cloudflare Deployment
+
+The app deploys to Cloudflare Workers using TanStack Start and Cloudflare's
+official Vite plugin.
+
+```sh
+npx wrangler login
+npm run deploy
+```
+
+Cloudflare configuration lives in `wrangler.jsonc`. Do not commit secrets.

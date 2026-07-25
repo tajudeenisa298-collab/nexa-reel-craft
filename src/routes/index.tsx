@@ -1020,17 +1020,14 @@ function CaseStudy() {
             data-visible={visible}
           >
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface">
-              <img
-                src={cardCarney}
-                alt="Carney & Esselle — animated wedding film still"
-                loading="lazy"
+              <video
+                src={carneyFinal.url}
+                poster={cardCarney}
+                controls
+                preload="metadata"
+                aria-label="Play the Carney and Esselle animated wedding film"
                 className="h-full w-full object-cover"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="glass grid h-16 w-16 place-items-center rounded-full">
-                  <Play className="h-5 w-5 fill-current" />
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -1065,7 +1062,7 @@ function CaseStudy() {
               <span className="mr-2 text-foreground">Approach —</span>
               Character sheets, storyboard, lookdev and animation produced
               in-house using an AI-native pipeline — from concept to master in
-              under three weeks.
+              five days.
             </p>
             <p>
               <span className="mr-2 text-foreground">Result —</span>
@@ -1075,9 +1072,9 @@ function CaseStudy() {
           </div>
 
           <div className="mt-10 grid grid-cols-3 gap-4">
-            <Stat label="Days brief → delivery" value={19} suffix="d" />
+            <Stat label="Days brief → delivery" value={5} suffix="d" />
             <Stat label="Custom shots" value={42} />
-            <Stat label="Placeholder metric" value={0} placeholder />
+            <Stat label="Final master delivered" value={1} />
           </div>
         </div>
       </div>
@@ -1265,64 +1262,52 @@ function RangeStatement() {
 
 const QUOTES = [
   {
-    q: "They turned a scribbled brief into a finished trailer in a week. Feels criminal.",
-    a: "Placeholder client",
-    r: "Placeholder role",
+    q: "NexaPixel completely exceeded our expectations with our wedding video. They captured every emotion so beautifully that it still brings tears to our eyes every time we watch it. The storytelling, cinematic editing, and AI-enhanced visuals made the entire film feel like a movie while still preserving every genuine moment. We couldn't have asked for a better team to document our special day. Thank you, NexaPixel, for creating something our family will cherish forever.",
+    a: "Esselle Mitchell",
   },
   {
-    q: "The character work alone would've cost me a month at any traditional studio.",
-    a: "Placeholder client",
-    r: "Placeholder role",
+    q: "I hired NexaPixel to create AI-powered promotional video content for my business, and the results were outstanding. The quality was professional, the visuals were incredibly engaging, and they understood exactly what I wanted with very little back-and-forth. The final video looked premium and helped elevate my brand. I highly recommend them to anyone looking for high-quality AI video creation.",
+    a: "Daniel Carter",
   },
   {
-    q: "It looks like film, not a demo. That's the whole game.",
-    a: "Placeholder client",
-    r: "Placeholder role",
+    q: "Working with NexaPixel was one of the best decisions I made for my content. Their creativity, attention to detail, and use of AI tools produced videos that were polished, modern, and visually stunning. Communication was smooth throughout the project, delivery was on time, and the final result exceeded my expectations. I'll definitely be coming back for future projects.",
+    a: "Olivia Brooks",
   },
 ];
 
 function Testimonials() {
-  const [i, setI] = useState(0);
   const { ref, visible } = useReveal<HTMLDivElement>();
 
-  useEffect(() => {
-    const id = window.setInterval(() => setI((v) => (v + 1) % QUOTES.length), 6000);
-    return () => window.clearInterval(id);
-  }, []);
-
   return (
-    <section className="relative bg-surface/30 px-6 py-28 sm:px-10 sm:py-36" ref={ref}>
+    <section
+      id="testimonials"
+      className="relative bg-surface/30 px-6 py-28 sm:px-10 sm:py-36"
+      ref={ref}
+    >
       <div className="mx-auto max-w-6xl">
         <p className="reveal text-[11px] uppercase tracking-[0.35em] text-muted-foreground" data-visible={visible}>
           <span className="mr-3 inline-block h-px w-8 translate-y-[-4px] bg-primary align-middle" />
-          What clients say <span className="ml-3 text-primary/70">— placeholder quotes</span>
+          What clients say
         </p>
 
-        <div className="relative mt-10 h-[220px] sm:h-[180px]">
+        <div className="mt-12 grid gap-10 lg:grid-cols-3">
           {QUOTES.map((q, idx) => (
             <blockquote
-              key={idx}
-              aria-hidden={i !== idx}
-              className={`absolute inset-0 transition-opacity duration-1000 ${i === idx ? "opacity-100" : "opacity-0"}`}
+              key={q.a}
+              className="reveal border-t border-white/10 pt-6"
+              data-visible={visible}
+              style={{ transitionDelay: `${idx * 120}ms` }}
             >
-              <p className="text-editorial max-w-4xl text-[clamp(1.5rem,3.2vw,2.75rem)] leading-tight">
+              <div className="mb-5 text-sm tracking-[0.18em] text-primary" aria-label="Five-star review">
+                ★★★★★
+              </div>
+              <p className="text-base leading-7 text-foreground/85">
                 &ldquo;{q.q}&rdquo;
               </p>
-              <footer className="mt-6 text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
-                {q.a} <span className="mx-2 text-primary">·</span> {q.r}
+              <footer className="mt-6 text-[11px] uppercase tracking-[0.25em] text-foreground">
+                {q.a}
               </footer>
             </blockquote>
-          ))}
-        </div>
-
-        <div className="mt-6 flex gap-2">
-          {QUOTES.map((_, idx) => (
-            <button
-              key={idx}
-              aria-label={`Quote ${idx + 1}`}
-              onClick={() => setI(idx)}
-              className={`h-[2px] w-10 transition-colors ${i === idx ? "bg-primary" : "bg-white/15"}`}
-            />
           ))}
         </div>
       </div>
@@ -1370,9 +1355,9 @@ function Contact() {
           data-visible={visible}
           style={{ transitionDelay: "300ms" }}
         >
-          <MagneticCTA href="mailto:hello@nexa-pixel.studio">
+          <MagneticCTA href="mailto:info@nexa-pixel.com">
             <span className="inline-flex items-center gap-2">
-              <Mail className="h-4 w-4" /> hello@nexa-pixel.studio
+              <Mail className="h-4 w-4" /> info@nexa-pixel.com
             </span>
           </MagneticCTA>
         </div>
@@ -1391,12 +1376,6 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 md:flex-row md:items-center">
         <div className="text-display text-lg tracking-[0.18em]">
           NEXA<span className="text-primary">·</span>PIXEL
-        </div>
-        <div className="flex flex-wrap gap-6 text-[11px] uppercase tracking-[0.25em] text-muted-foreground">
-          <a href="#" className="underline-draw">YouTube</a>
-          <a href="#" className="underline-draw">Instagram</a>
-          <a href="#" className="underline-draw">Fiverr</a>
-          <a href="#" className="underline-draw">Vimeo</a>
         </div>
         <div className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground/60">
           © {new Date().getFullYear()} Nexa-Pixel Studio
