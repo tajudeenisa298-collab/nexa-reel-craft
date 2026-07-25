@@ -1,11 +1,3 @@
 {
-  "version": 1,
-  "asset_id": "bea4bd50-ee39-423e-99c6-54803601ca48",
-  "project_id": "b09d1911-725c-4d9d-a626-e63676aeb91f",
-  "url": "/__l5e/assets-v1/bea4bd50-ee39-423e-99c6-54803601ca48/mv-sampler.mp4",
-  "r2_key": "a/v1/b09d1911-725c-4d9d-a626-e63676aeb91f/bea4bd50-ee39-423e-99c6-54803601ca48/mv-sampler.mp4",
-  "original_filename": "mv-sampler.mp4",
-  "size": 14214800,
-  "content_type": "video/mp4",
-  "created_at": "2026-07-25T15:46:02Z"
+  "url": "/media/mv-sampler.mp4"
 }

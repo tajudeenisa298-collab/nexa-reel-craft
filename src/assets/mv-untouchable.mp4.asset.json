@@ -1,11 +1,3 @@
 {
-  "version": 1,
-  "asset_id": "c251b5f2-ead1-400f-a29a-92123ef6148a",
-  "project_id": "b09d1911-725c-4d9d-a626-e63676aeb91f",
-  "url": "/__l5e/assets-v1/c251b5f2-ead1-400f-a29a-92123ef6148a/mv-untouchable.mp4",
-  "r2_key": "a/v1/b09d1911-725c-4d9d-a626-e63676aeb91f/c251b5f2-ead1-400f-a29a-92123ef6148a/mv-untouchable.mp4",
-  "original_filename": "mv-untouchable.mp4",
-  "size": 12271317,
-  "content_type": "video/mp4",
-  "created_at": "2026-07-25T15:46:05Z"
+  "url": "/media/mv-untouchable.mp4"
 }

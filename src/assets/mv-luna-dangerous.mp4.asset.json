@@ -1,11 +1,3 @@
 {
-  "version": 1,
-  "asset_id": "191fbb8f-9769-4889-8951-70baedf22de9",
-  "project_id": "b09d1911-725c-4d9d-a626-e63676aeb91f",
-  "url": "/__l5e/assets-v1/191fbb8f-9769-4889-8951-70baedf22de9/mv-luna-dangerous.mp4",
-  "r2_key": "a/v1/b09d1911-725c-4d9d-a626-e63676aeb91f/191fbb8f-9769-4889-8951-70baedf22de9/mv-luna-dangerous.mp4",
-  "original_filename": "mv-luna-dangerous.mp4",
-  "size": 15049575,
-  "content_type": "video/mp4",
-  "created_at": "2026-07-25T15:45:55Z"
+  "url": "/media/mv-luna-dangerous.mp4"
 }

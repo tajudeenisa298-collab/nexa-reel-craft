@@ -1,11 +1,3 @@
 {
-  "version": 1,
-  "asset_id": "45110d18-2713-402f-9e48-10af3628b7e0",
-  "project_id": "b09d1911-725c-4d9d-a626-e63676aeb91f",
-  "url": "/__l5e/assets-v1/45110d18-2713-402f-9e48-10af3628b7e0/trailer-ai-drama.mp4",
-  "r2_key": "a/v1/b09d1911-725c-4d9d-a626-e63676aeb91f/45110d18-2713-402f-9e48-10af3628b7e0/trailer-ai-drama.mp4",
-  "original_filename": "trailer-ai-drama.mp4",
-  "size": 11914505,
-  "content_type": "video/mp4",
-  "created_at": "2026-07-25T15:53:51Z"
+  "url": "/media/trailer-ai-drama.mp4"
 }
