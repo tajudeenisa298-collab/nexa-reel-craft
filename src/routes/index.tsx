@@ -11,7 +11,7 @@ import { ArrowUpRight, Play, X, Mail, ChevronRight } from "lucide-react";
 
 import heroReel from "@/assets/hero-reel.jpg";
 import cardErnie from "@/assets/card-ernie.jpg";
-import cardStanley from "@/assets/card-stanley.jpg";
+
 import charStanleySheet from "@/assets/stanley-sheet.png.asset.json";
 import charLucienneSheet from "@/assets/lucienne-sheet.png.asset.json";
 import cardCarney from "@/assets/card-carney.jpg";
