@@ -121,29 +121,52 @@ type Piece = {
 const PIECES: Piece[] = [
   {
     id: "music-01",
-    title: "Neon Chorus",
+    title: "Untouchable",
     categories: ["music"],
     categoryTag: "Music Video",
-    description: "Anthemic AI-directed performance video — full concept to final cut in 6 days.",
-    image: cardMusic1,
-    aspect: "landscape",
+    description:
+      "Original AI-directed music video — moody, futurist neon world built shot-by-shot with a generative pipeline.",
+    videoSrc: mvUntouchable.url,
+    aspect: "portrait",
   },
   {
     id: "music-02",
-    title: "Untitled — Artist Reel",
+    title: "Luna — Dangerous Liaisons",
     categories: ["music"],
     categoryTag: "Music Video",
-    description: "Placeholder — drop in the finished cut here.",
-    placeholder: true,
-    aspect: "landscape",
+    description:
+      "Full AI artist campaign for virtual pop persona Luna — cinematic performance visuals cut to a Suno-produced single.",
+    videoSrc: mvLuna.url,
+    aspect: "portrait",
   },
   {
     id: "music-03",
-    title: "Untitled — Single Release",
+    title: "New Born",
     categories: ["music"],
     categoryTag: "Music Video",
-    description: "Placeholder — single-release visual, artist TBA.",
-    placeholder: true,
+    description:
+      "Ethereal AI music video — birth-of-a-star visual concept, high-contrast portraiture and dreamscape transitions.",
+    videoSrc: mvNewborn.url,
+    aspect: "landscape",
+  },
+  {
+    id: "music-04",
+    title: "AI Sound Sampler",
+    categories: ["music"],
+    categoryTag: "Music Video",
+    description:
+      "Rapid-fire visual sampler for an AI-generated track — proof of speed, range, and cut-to-beat editorial precision.",
+    videoSrc: mvSampler.url,
+    aspect: "landscape",
+  },
+  {
+    id: "music-05",
+    title: "AI Music MV",
+    categories: ["music"],
+    categoryTag: "Music Video",
+    description:
+      "Concept-to-cut AI music video — character-driven performance staged entirely with generative models.",
+    videoSrc: mvAiMusic.url,
     aspect: "portrait",
   },
   {
