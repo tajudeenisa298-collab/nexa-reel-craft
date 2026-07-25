@@ -11,7 +11,9 @@ import { ArrowUpRight, Play, X, Mail, ChevronRight } from "lucide-react";
 
 import heroReel from "@/assets/hero-reel.jpg";
 import cardErnie from "@/assets/card-ernie.jpg";
-import cardStanley from "@/assets/card-stanley.jpg";
+
+import charStanleySheet from "@/assets/stanley-sheet.png.asset.json";
+import charLucienneSheet from "@/assets/lucienne-sheet.png.asset.json";
 import cardCarney from "@/assets/card-carney.jpg";
 import cardMusic1 from "@/assets/card-music1.jpg";
 import cardTrailer1 from "@/assets/card-trailer1.jpg";
@@ -221,12 +223,22 @@ const PIECES: Piece[] = [
   },
   {
     id: "char-stanley",
-    title: "Stanley",
+    title: "Stanley — Age 19",
     categories: ["character"],
     categoryTag: "Character Design",
     description:
-      "Photoreal character reference sheet — full turnaround, expression sheet, studio lighting.",
-    image: cardStanley,
+      "Street-smart, cunning, impossible to intimidate. Full character bible: face close-ups, hair and outfit breakdowns, physique notes, accessories and locked color palette for cross-episode continuity.",
+    image: charStanleySheet.url,
+    aspect: "landscape",
+  },
+  {
+    id: "char-lucienne",
+    title: "Lucienne — The Fortune Teller",
+    categories: ["character"],
+    categoryTag: "Character Design",
+    description:
+      "A ~70-year-old Martinique fortune teller — wise, unreadable, never smiles. Head turnaround, expression sheet, hand and skin detail, wardrobe rules and continuity guidelines for serialised drama.",
+    image: charLucienneSheet.url,
     aspect: "landscape",
   },
   {
