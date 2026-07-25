@@ -439,7 +439,7 @@ function Hero({ isTouch }: { isTouch: boolean }) {
     >
       {/* Background reel — swap the <img> for a <video> autoplay muted loop */}
       <div
-        className="absolute inset-0 -z-10"
+        className="absolute inset-0 z-0"
         style={{
           transform: `translate3d(${parallax.x * -20}px, ${parallax.y * -20}px, 0)`,
           transition: "transform 400ms cubic-bezier(0.16,1,0.3,1)",
@@ -462,11 +462,11 @@ function Hero({ isTouch }: { isTouch: boolean }) {
       </div>
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-gradient-to-b from-background/70 via-background/40 to-background"
+        className="absolute inset-0 z-0 bg-gradient-to-b from-background/70 via-background/40 to-background"
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(120%_80%_at_50%_120%,transparent,var(--background))]"
+        className="absolute inset-0 z-0 bg-[radial-gradient(120%_80%_at_50%_120%,transparent,var(--background))]"
       />
 
       <div
