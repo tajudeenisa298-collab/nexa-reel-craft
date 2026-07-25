@@ -789,7 +789,17 @@ function PortfolioCard({
       className="reveal card-spotlight group relative block w-full overflow-hidden rounded-xl border border-white/5 bg-surface text-left transition-transform duration-500 ease-out active:scale-[0.99]"
     >
       <div className={`relative ${aspect} w-full overflow-hidden`}>
-        {piece.image ? (
+        {piece.videoSrc ? (
+          <video
+            src={piece.videoSrc}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+          />
+        ) : piece.image ? (
           <img
             src={piece.image}
             alt={piece.title}
@@ -798,19 +808,6 @@ function PortfolioCard({
           />
         ) : (
           <PlaceholderThumb title={piece.title} />
-        )}
-
-        {/* Preview video crossfade — swap videoSrc in on real content */}
-        {piece.videoSrc && (hover || tapped) && (
-          <video
-            src={piece.videoSrc}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100 data-[tapped=true]:opacity-100"
-            data-tapped={tapped}
-          />
         )}
 
         {/* gradient scrim */}
