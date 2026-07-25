@@ -158,8 +158,8 @@ const PIECES: Piece[] = [
   {
     id: "music-04",
     title: "AI Sound Sampler",
-    categories: ["music"],
-    categoryTag: "Music Video",
+    categories: ["music", "animation"],
+    categoryTag: "Music Video / Animation",
     description:
       "Rapid-fire visual sampler for an AI-generated track — proof of speed, range, and cut-to-beat editorial precision.",
     videoSrc: mvSampler.url,
