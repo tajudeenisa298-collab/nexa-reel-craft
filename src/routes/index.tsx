@@ -26,6 +26,8 @@ import mvSampler from "@/assets/mv-sampler.mp4.asset.json";
 import mvUntouchable from "@/assets/mv-untouchable.mp4.asset.json";
 import trailerAiDrama from "@/assets/trailer-ai-drama.mp4.asset.json";
 import dramaPaperShop from "@/assets/drama-paper-shop.mp4.asset.json";
+import brandFilm from "@/assets/brand-film.mp4.asset.json";
+import carneyFinal from "@/assets/carney-esselle-final.mp4.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
