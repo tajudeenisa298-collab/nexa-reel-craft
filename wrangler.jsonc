@@ -8,6 +8,10 @@
     {
       "pattern": "nexa-pixel.com",
       "custom_domain": true
+    },
+    {
+      "pattern": "www.nexa-pixel.com",
+      "custom_domain": true
     }
   ],
   "observability": {
