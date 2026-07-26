@@ -45,7 +45,41 @@ export const Route = createFileRoute("/")({
           "Music videos, trailers, drama, character design and brand films — built with the speed and range of an AI-native studio.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://nexa-pixel.com/" },
+      { property: "og:site_name", content: "Nexa-Pixel" },
+      {
+        property: "og:image",
+        content: "https://nexa-pixel.com/og/nexa-pixel-social.jpg",
+      },
+      {
+        property: "og:image:secure_url",
+        content: "https://nexa-pixel.com/og/nexa-pixel-social.jpg",
+      },
+      { property: "og:image:type", content: "image/jpeg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      {
+        property: "og:image:alt",
+        content: "Nexa-Pixel cinematic AI video production",
+      },
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:title",
+        content: "Nexa-Pixel — Cinematic AI video production",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Music videos, trailers, animation and brand films from an AI-native studio.",
+      },
+      {
+        name: "twitter:image",
+        content: "https://nexa-pixel.com/og/nexa-pixel-social.jpg",
+      },
+      {
+        name: "twitter:image:alt",
+        content: "Nexa-Pixel cinematic AI video production",
+      },
     ],
   }),
   component: Home,
@@ -130,6 +164,7 @@ type Piece = {
   categoryTag: string;
   description: string;
   image?: string;
+  poster?: string;
   aspect?: "portrait" | "landscape" | "square";
   placeholder?: boolean;
   /* videoSrc — swap in real footage here */
@@ -144,6 +179,7 @@ const PIECES: Piece[] = [
     categoryTag: "Music Video",
     description:
       "Original AI-directed music video — moody, futurist neon world built shot-by-shot with a generative pipeline.",
+    poster: "/media/posters/mv-untouchable.webp",
     videoSrc: mvUntouchable.url,
     aspect: "portrait",
   },
@@ -154,6 +190,7 @@ const PIECES: Piece[] = [
     categoryTag: "Music Video",
     description:
       "Full AI artist campaign for virtual pop persona Luna — cinematic performance visuals cut to a Suno-produced single.",
+    poster: "/media/posters/mv-luna-dangerous.webp",
     videoSrc: mvLuna.url,
     aspect: "portrait",
   },
@@ -164,6 +201,7 @@ const PIECES: Piece[] = [
     categoryTag: "Music Video",
     description:
       "Ethereal AI music video — birth-of-a-star visual concept, high-contrast portraiture and dreamscape transitions.",
+    poster: "/media/posters/mv-newborn.webp",
     videoSrc: mvNewborn.url,
     aspect: "landscape",
   },
@@ -174,6 +212,7 @@ const PIECES: Piece[] = [
     categoryTag: "Music Video / Animation",
     description:
       "Rapid-fire visual sampler for an AI-generated track — proof of speed, range, and cut-to-beat editorial precision.",
+    poster: "/media/posters/mv-sampler.webp",
     videoSrc: mvSampler.url,
     aspect: "landscape",
   },
@@ -184,6 +223,7 @@ const PIECES: Piece[] = [
     categoryTag: "Music Video",
     description:
       "Concept-to-cut AI music video — character-driven performance staged entirely with generative models.",
+    poster: "/media/posters/mv-ai-music.webp",
     videoSrc: mvAiMusic.url,
     aspect: "portrait",
   },
@@ -203,6 +243,7 @@ const PIECES: Piece[] = [
     categoryTag: "Cinematic Trailer",
     description:
       "International-market AI short-drama teaser — high-contrast cinematic grade, cut for vertical-first release and social pre-roll.",
+    poster: "/media/posters/trailer-ai-drama.webp",
     videoSrc: trailerAiDrama.url,
     aspect: "portrait",
   },
@@ -222,6 +263,7 @@ const PIECES: Piece[] = [
     categoryTag: "Micro-Drama",
     description:
       "Episode one of a supernatural micro-drama — Chen Jiu enters the game. Period-styled AI cinematography and character continuity across a serialised vertical release.",
+    poster: "/media/posters/drama-paper-shop.webp",
     videoSrc: dramaPaperShop.url,
     aspect: "portrait",
   },
@@ -262,6 +304,7 @@ const PIECES: Piece[] = [
     categoryTag: "Animated Wedding Film",
     description:
       "A fully animated wedding story rendered in a Pixar-inspired style — final delivered cut with locked character design, lighting and story beats.",
+    poster: cardCarney,
     videoSrc: carneyFinal.url,
     aspect: "landscape",
   },
@@ -299,6 +342,7 @@ const PIECES: Piece[] = [
     categoryTag: "Brand Film",
     description:
       "A cinematic brand spot cut for social — bold typography, tactile product beats and a confident hero moment engineered to stop the scroll.",
+    poster: "/media/posters/nexa-brand-reel.webp",
     videoSrc: brandFilm.url,
     aspect: "portrait",
   },
@@ -638,6 +682,9 @@ function Hero({ isTouch }: { isTouch: boolean }) {
           alt=""
           width={1920}
           height={1080}
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
           className="animate-kenburns h-full w-full object-cover"
         />
       </div>
@@ -969,21 +1016,12 @@ function PortfolioCard({
       className="reveal card-spotlight group relative block w-full overflow-hidden rounded-xl border border-white/5 bg-surface text-left transition-transform duration-500 ease-out active:scale-[0.99]"
     >
       <div className={`relative ${aspect} w-full overflow-hidden`}>
-        {piece.videoSrc ? (
-          <video
-            src={piece.videoSrc}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
-          />
-        ) : piece.image ? (
+        {piece.poster || piece.image ? (
           <img
-            src={piece.image}
+            src={piece.poster ?? piece.image}
             alt={piece.title}
             loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
           />
         ) : (
@@ -1487,8 +1525,11 @@ function Lightbox({ piece, onClose }: { piece: Piece; onClose: () => void }) {
           {piece.videoSrc ? (
             <video
               src={piece.videoSrc}
+              poster={piece.poster}
               controls
               autoPlay
+              playsInline
+              preload="metadata"
               className="h-full w-full object-cover"
             />
           ) : piece.image ? (
