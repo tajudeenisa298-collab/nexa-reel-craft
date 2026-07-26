@@ -38,6 +38,7 @@ export const Route = createFileRoute("/")({
         content:
           "Nexa-Pixel is a boutique AI-powered video production studio building music videos, trailers, character work and brand films for artists and brands who move fast.",
       },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
       { property: "og:title", content: "Nexa-Pixel — Cinematic AI video production" },
       {
         property: "og:description",
@@ -81,6 +82,7 @@ export const Route = createFileRoute("/")({
         content: "Nexa-Pixel cinematic AI video production",
       },
     ],
+    links: [{ rel: "canonical", href: "https://nexa-pixel.com/" }],
   }),
   component: Home,
 });
