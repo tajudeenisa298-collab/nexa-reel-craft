@@ -4,6 +4,12 @@
   "compatibility_date": "2026-07-25",
   "compatibility_flags": ["nodejs_compat"],
   "main": "src/server.ts",
+  "routes": [
+    {
+      "pattern": "nexa-pixel.com",
+      "custom_domain": true
+    }
+  ],
   "observability": {
     "enabled": true
   }

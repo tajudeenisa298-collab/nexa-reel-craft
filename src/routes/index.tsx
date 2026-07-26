@@ -90,6 +90,18 @@ function useIsTouch() {
   return touch;
 }
 
+function useIsMobile() {
+  const [mobile, setMobile] = useState(true);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    const update = () => setMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+  return mobile;
+}
+
 /* ------------------------------------------------------------------ */
 /* Data                                                               */
 /* ------------------------------------------------------------------ */
@@ -802,6 +814,8 @@ function Portfolio({
   isTouch: boolean;
 }) {
   const [filter, setFilter] = useState<"all" | Category>("all");
+  const [showAllMobile, setShowAllMobile] = useState(false);
+  const isMobile = useIsMobile();
 
   const visible = useMemo(
     () =>
@@ -810,6 +824,9 @@ function Portfolio({
         : PIECES.filter((p) => p.categories.includes(filter)),
     [filter],
   );
+  const mobilePreviewActive =
+    isMobile && filter === "all" && !showAllMobile && visible.length > 3;
+  const displayed = mobilePreviewActive ? visible.slice(0, 3) : visible;
 
   const { ref, visible: intro } = useReveal<HTMLDivElement>();
 
@@ -842,7 +859,10 @@ function Portfolio({
             {FILTERS.map((f) => (
               <button
                 key={f.id}
-                onClick={() => setFilter(f.id)}
+                onClick={() => {
+                  setFilter(f.id);
+                  setShowAllMobile(false);
+                }}
                 data-active={filter === f.id}
                 className="underline-draw rounded-full border border-white/10 px-4 py-2 text-[11px] uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground data-[active=true]:border-primary/60 data-[active=true]:bg-primary/10 data-[active=true]:text-foreground"
               >
@@ -855,7 +875,7 @@ function Portfolio({
         <div
           className={`cursor-none-zone mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5`}
         >
-          {visible.map((p, i) => (
+          {displayed.map((p, i) => (
             <PortfolioCard
               key={p.id}
               piece={p}
@@ -865,6 +885,24 @@ function Portfolio({
             />
           ))}
         </div>
+
+        {isMobile && filter === "all" && visible.length > 3 && (
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              aria-expanded={showAllMobile}
+              onClick={() => setShowAllMobile((current) => !current)}
+              className="group inline-flex min-h-12 items-center gap-3 rounded-full border border-white/20 px-6 py-3 text-[11px] uppercase tracking-[0.2em] text-foreground transition-colors hover:border-primary/70 hover:bg-primary/10"
+            >
+              {showAllMobile ? "Show fewer" : `View all ${visible.length} projects`}
+              <ChevronRight
+                className={`h-4 w-4 transition-transform duration-300 ${
+                  showAllMobile ? "-rotate-90" : "rotate-90"
+                }`}
+              />
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );
@@ -1007,6 +1045,8 @@ function PlaceholderThumb({ title }: { title: string }) {
 
 function CaseStudy() {
   const { ref, visible } = useReveal<HTMLDivElement>();
+  const [playing, setPlaying] = useState(false);
+
   return (
     <section
       id="case"
@@ -1020,14 +1060,35 @@ function CaseStudy() {
             data-visible={visible}
           >
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface">
-              <video
-                src={carneyFinal.url}
-                poster={cardCarney}
-                controls
-                preload="metadata"
-                aria-label="Play the Carney and Esselle animated wedding film"
-                className="h-full w-full object-cover"
-              />
+              {playing ? (
+                <video
+                  src={carneyFinal.url}
+                  poster={cardCarney}
+                  controls
+                  autoPlay
+                  playsInline
+                  preload="metadata"
+                  aria-label="Carney and Esselle animated wedding film"
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setPlaying(true)}
+                  aria-label="Play the Carney and Esselle animated wedding film"
+                  className="group relative h-full w-full"
+                >
+                  <img
+                    src={cardCarney}
+                    alt="Carney and Esselle animated wedding film"
+                    className="h-full w-full object-cover"
+                  />
+                  <span className="absolute inset-0 bg-black/10 transition-colors group-hover:bg-black/20" />
+                  <span className="absolute left-1/2 top-1/2 inline-flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-2xl transition-transform duration-300 group-hover:scale-105">
+                    <Play className="ml-1 h-6 w-6 fill-current" />
+                  </span>
+                </button>
+              )}
             </div>
           </div>
         </div>
