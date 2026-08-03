@@ -10,33 +10,272 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AiMusicVideosRouteImport } from './routes/ai-music-videos'
+import { Route as AiProductionDisclosureRouteImport } from './routes/ai-production-disclosure'
+import { Route as AiVideoAdsRouteImport } from './routes/ai-video-ads'
+import { Route as AnimatedWeddingFilmsRouteImport } from './routes/animated-wedding-films'
+import { Route as BookTrailersRouteImport } from './routes/book-trailers'
+import { Route as BrandProductFilmsRouteImport } from './routes/brand-product-films'
+import { Route as CharacterAnimeVideosRouteImport } from './routes/character-anime-videos'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CookiePolicyRouteImport } from './routes/cookie-policy'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as SaasExplainerVideosRouteImport } from './routes/saas-explainer-videos'
+import { Route as StartAProjectRouteImport } from './routes/start-a-project'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as TrailersNarrativeFilmsRouteImport } from './routes/trailers-narrative-films'
+import { Route as CaseStudiesCarneyEsselleRouteImport } from './routes/case-studies.carney-esselle'
+import { Route as WorkIndexRouteImport } from './routes/work.index'
+import { Route as WorkSlugRouteImport } from './routes/work.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiMusicVideosRoute = AiMusicVideosRouteImport.update({
+  id: '/ai-music-videos',
+  path: '/ai-music-videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiProductionDisclosureRoute = AiProductionDisclosureRouteImport.update({
+  id: '/ai-production-disclosure',
+  path: '/ai-production-disclosure',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiVideoAdsRoute = AiVideoAdsRouteImport.update({
+  id: '/ai-video-ads',
+  path: '/ai-video-ads',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AnimatedWeddingFilmsRoute = AnimatedWeddingFilmsRouteImport.update({
+  id: '/animated-wedding-films',
+  path: '/animated-wedding-films',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookTrailersRoute = BookTrailersRouteImport.update({
+  id: '/book-trailers',
+  path: '/book-trailers',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandProductFilmsRoute = BrandProductFilmsRouteImport.update({
+  id: '/brand-product-films',
+  path: '/brand-product-films',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CharacterAnimeVideosRoute = CharacterAnimeVideosRouteImport.update({
+  id: '/character-anime-videos',
+  path: '/character-anime-videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiePolicyRoute = CookiePolicyRouteImport.update({
+  id: '/cookie-policy',
+  path: '/cookie-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SaasExplainerVideosRoute = SaasExplainerVideosRouteImport.update({
+  id: '/saas-explainer-videos',
+  path: '/saas-explainer-videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StartAProjectRoute = StartAProjectRouteImport.update({
+  id: '/start-a-project',
+  path: '/start-a-project',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrailersNarrativeFilmsRoute = TrailersNarrativeFilmsRouteImport.update({
+  id: '/trailers-narrative-films',
+  path: '/trailers-narrative-films',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesCarneyEsselleRoute =
+  CaseStudiesCarneyEsselleRouteImport.update({
+    id: '/case-studies/carney-esselle',
+    path: '/case-studies/carney-esselle',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const WorkIndexRoute = WorkIndexRouteImport.update({
+  id: '/work/',
+  path: '/work/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkSlugRoute = WorkSlugRouteImport.update({
+  id: '/work/$slug',
+  path: '/work/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai-music-videos': typeof AiMusicVideosRoute
+  '/ai-production-disclosure': typeof AiProductionDisclosureRoute
+  '/ai-video-ads': typeof AiVideoAdsRoute
+  '/animated-wedding-films': typeof AnimatedWeddingFilmsRoute
+  '/book-trailers': typeof BookTrailersRoute
+  '/brand-product-films': typeof BrandProductFilmsRoute
+  '/character-anime-videos': typeof CharacterAnimeVideosRoute
+  '/contact': typeof ContactRoute
+  '/cookie-policy': typeof CookiePolicyRoute
+  '/privacy': typeof PrivacyRoute
+  '/saas-explainer-videos': typeof SaasExplainerVideosRoute
+  '/start-a-project': typeof StartAProjectRoute
+  '/terms': typeof TermsRoute
+  '/trailers-narrative-films': typeof TrailersNarrativeFilmsRoute
+  '/case-studies/carney-esselle': typeof CaseStudiesCarneyEsselleRoute
+  '/work/$slug': typeof WorkSlugRoute
+  '/work/': typeof WorkIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai-music-videos': typeof AiMusicVideosRoute
+  '/ai-production-disclosure': typeof AiProductionDisclosureRoute
+  '/ai-video-ads': typeof AiVideoAdsRoute
+  '/animated-wedding-films': typeof AnimatedWeddingFilmsRoute
+  '/book-trailers': typeof BookTrailersRoute
+  '/brand-product-films': typeof BrandProductFilmsRoute
+  '/character-anime-videos': typeof CharacterAnimeVideosRoute
+  '/contact': typeof ContactRoute
+  '/cookie-policy': typeof CookiePolicyRoute
+  '/privacy': typeof PrivacyRoute
+  '/saas-explainer-videos': typeof SaasExplainerVideosRoute
+  '/start-a-project': typeof StartAProjectRoute
+  '/terms': typeof TermsRoute
+  '/trailers-narrative-films': typeof TrailersNarrativeFilmsRoute
+  '/case-studies/carney-esselle': typeof CaseStudiesCarneyEsselleRoute
+  '/work/$slug': typeof WorkSlugRoute
+  '/work': typeof WorkIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/ai-music-videos': typeof AiMusicVideosRoute
+  '/ai-production-disclosure': typeof AiProductionDisclosureRoute
+  '/ai-video-ads': typeof AiVideoAdsRoute
+  '/animated-wedding-films': typeof AnimatedWeddingFilmsRoute
+  '/book-trailers': typeof BookTrailersRoute
+  '/brand-product-films': typeof BrandProductFilmsRoute
+  '/character-anime-videos': typeof CharacterAnimeVideosRoute
+  '/contact': typeof ContactRoute
+  '/cookie-policy': typeof CookiePolicyRoute
+  '/privacy': typeof PrivacyRoute
+  '/saas-explainer-videos': typeof SaasExplainerVideosRoute
+  '/start-a-project': typeof StartAProjectRoute
+  '/terms': typeof TermsRoute
+  '/trailers-narrative-films': typeof TrailersNarrativeFilmsRoute
+  '/case-studies/carney-esselle': typeof CaseStudiesCarneyEsselleRoute
+  '/work/$slug': typeof WorkSlugRoute
+  '/work/': typeof WorkIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/ai-music-videos'
+    | '/ai-production-disclosure'
+    | '/ai-video-ads'
+    | '/animated-wedding-films'
+    | '/book-trailers'
+    | '/brand-product-films'
+    | '/character-anime-videos'
+    | '/contact'
+    | '/cookie-policy'
+    | '/privacy'
+    | '/saas-explainer-videos'
+    | '/start-a-project'
+    | '/terms'
+    | '/trailers-narrative-films'
+    | '/case-studies/carney-esselle'
+    | '/work/$slug'
+    | '/work/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/ai-music-videos'
+    | '/ai-production-disclosure'
+    | '/ai-video-ads'
+    | '/animated-wedding-films'
+    | '/book-trailers'
+    | '/brand-product-films'
+    | '/character-anime-videos'
+    | '/contact'
+    | '/cookie-policy'
+    | '/privacy'
+    | '/saas-explainer-videos'
+    | '/start-a-project'
+    | '/terms'
+    | '/trailers-narrative-films'
+    | '/case-studies/carney-esselle'
+    | '/work/$slug'
+    | '/work'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/ai-music-videos'
+    | '/ai-production-disclosure'
+    | '/ai-video-ads'
+    | '/animated-wedding-films'
+    | '/book-trailers'
+    | '/brand-product-films'
+    | '/character-anime-videos'
+    | '/contact'
+    | '/cookie-policy'
+    | '/privacy'
+    | '/saas-explainer-videos'
+    | '/start-a-project'
+    | '/terms'
+    | '/trailers-narrative-films'
+    | '/case-studies/carney-esselle'
+    | '/work/$slug'
+    | '/work/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AiMusicVideosRoute: typeof AiMusicVideosRoute
+  AiProductionDisclosureRoute: typeof AiProductionDisclosureRoute
+  AiVideoAdsRoute: typeof AiVideoAdsRoute
+  AnimatedWeddingFilmsRoute: typeof AnimatedWeddingFilmsRoute
+  BookTrailersRoute: typeof BookTrailersRoute
+  BrandProductFilmsRoute: typeof BrandProductFilmsRoute
+  CharacterAnimeVideosRoute: typeof CharacterAnimeVideosRoute
+  ContactRoute: typeof ContactRoute
+  CookiePolicyRoute: typeof CookiePolicyRoute
+  PrivacyRoute: typeof PrivacyRoute
+  SaasExplainerVideosRoute: typeof SaasExplainerVideosRoute
+  StartAProjectRoute: typeof StartAProjectRoute
+  TermsRoute: typeof TermsRoute
+  TrailersNarrativeFilmsRoute: typeof TrailersNarrativeFilmsRoute
+  CaseStudiesCarneyEsselleRoute: typeof CaseStudiesCarneyEsselleRoute
+  WorkSlugRoute: typeof WorkSlugRoute
+  WorkIndexRoute: typeof WorkIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +287,155 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-music-videos': {
+      id: '/ai-music-videos'
+      path: '/ai-music-videos'
+      fullPath: '/ai-music-videos'
+      preLoaderRoute: typeof AiMusicVideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-production-disclosure': {
+      id: '/ai-production-disclosure'
+      path: '/ai-production-disclosure'
+      fullPath: '/ai-production-disclosure'
+      preLoaderRoute: typeof AiProductionDisclosureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-video-ads': {
+      id: '/ai-video-ads'
+      path: '/ai-video-ads'
+      fullPath: '/ai-video-ads'
+      preLoaderRoute: typeof AiVideoAdsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/animated-wedding-films': {
+      id: '/animated-wedding-films'
+      path: '/animated-wedding-films'
+      fullPath: '/animated-wedding-films'
+      preLoaderRoute: typeof AnimatedWeddingFilmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/book-trailers': {
+      id: '/book-trailers'
+      path: '/book-trailers'
+      fullPath: '/book-trailers'
+      preLoaderRoute: typeof BookTrailersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brand-product-films': {
+      id: '/brand-product-films'
+      path: '/brand-product-films'
+      fullPath: '/brand-product-films'
+      preLoaderRoute: typeof BrandProductFilmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/character-anime-videos': {
+      id: '/character-anime-videos'
+      path: '/character-anime-videos'
+      fullPath: '/character-anime-videos'
+      preLoaderRoute: typeof CharacterAnimeVideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookie-policy': {
+      id: '/cookie-policy'
+      path: '/cookie-policy'
+      fullPath: '/cookie-policy'
+      preLoaderRoute: typeof CookiePolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/saas-explainer-videos': {
+      id: '/saas-explainer-videos'
+      path: '/saas-explainer-videos'
+      fullPath: '/saas-explainer-videos'
+      preLoaderRoute: typeof SaasExplainerVideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/start-a-project': {
+      id: '/start-a-project'
+      path: '/start-a-project'
+      fullPath: '/start-a-project'
+      preLoaderRoute: typeof StartAProjectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trailers-narrative-films': {
+      id: '/trailers-narrative-films'
+      path: '/trailers-narrative-films'
+      fullPath: '/trailers-narrative-films'
+      preLoaderRoute: typeof TrailersNarrativeFilmsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies/carney-esselle': {
+      id: '/case-studies/carney-esselle'
+      path: '/case-studies/carney-esselle'
+      fullPath: '/case-studies/carney-esselle'
+      preLoaderRoute: typeof CaseStudiesCarneyEsselleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/work/': {
+      id: '/work/'
+      path: '/work'
+      fullPath: '/work/'
+      preLoaderRoute: typeof WorkIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/work/$slug': {
+      id: '/work/$slug'
+      path: '/work/$slug'
+      fullPath: '/work/$slug'
+      preLoaderRoute: typeof WorkSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AiMusicVideosRoute: AiMusicVideosRoute,
+  AiProductionDisclosureRoute: AiProductionDisclosureRoute,
+  AiVideoAdsRoute: AiVideoAdsRoute,
+  AnimatedWeddingFilmsRoute: AnimatedWeddingFilmsRoute,
+  BookTrailersRoute: BookTrailersRoute,
+  BrandProductFilmsRoute: BrandProductFilmsRoute,
+  CharacterAnimeVideosRoute: CharacterAnimeVideosRoute,
+  ContactRoute: ContactRoute,
+  CookiePolicyRoute: CookiePolicyRoute,
+  PrivacyRoute: PrivacyRoute,
+  SaasExplainerVideosRoute: SaasExplainerVideosRoute,
+  StartAProjectRoute: StartAProjectRoute,
+  TermsRoute: TermsRoute,
+  TrailersNarrativeFilmsRoute: TrailersNarrativeFilmsRoute,
+  CaseStudiesCarneyEsselleRoute: CaseStudiesCarneyEsselleRoute,
+  WorkSlugRoute: WorkSlugRoute,
+  WorkIndexRoute: WorkIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

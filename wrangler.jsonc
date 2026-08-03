@@ -1,20 +1,24 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "nexa-pixel-cinematic-showcase",
-  "compatibility_date": "2026-07-25",
+  "compatibility_date": "2026-07-29",
   "compatibility_flags": ["nodejs_compat"],
   "main": "src/server.ts",
+  "upload_source_maps": true,
   "routes": [
     {
       "pattern": "nexa-pixel.com",
-      "custom_domain": true
+      "custom_domain": true,
     },
     {
       "pattern": "www.nexa-pixel.com",
-      "custom_domain": true
-    }
+      "custom_domain": true,
+    },
   ],
   "observability": {
-    "enabled": true
-  }
+    "enabled": true,
+  },
+  "secrets": {
+    "required": ["PROJECT_BRIEF_WEBHOOK_URL"],
+  },
 }
