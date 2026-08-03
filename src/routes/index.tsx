@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Check, Play } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 import heroPoster from "@/assets/hero-reel.jpg";
 import { JsonLd } from "@/components/site/json-ld";
@@ -55,8 +56,20 @@ const capabilities = [
 ];
 
 function HomePage() {
+  const [heroVideoPlaying, setHeroVideoPlaying] = useState(false);
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
   const featured = PROJECTS.filter((project) => project.featured).slice(0, 6);
   const carney = PROJECTS.find((project) => project.slug === "carney-esselle");
+
+  useEffect(() => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) setHeroVideoPlaying(true);
+    void video
+      .play()
+      .then(() => setHeroVideoPlaying(true))
+      .catch(() => undefined);
+  }, []);
 
   const schema = [
     {
@@ -87,6 +100,8 @@ function HomePage() {
       <section className="home-hero">
         <div className="hero-media" aria-hidden="true">
           <video
+            ref={heroVideoRef}
+            className={heroVideoPlaying ? "is-playing" : undefined}
             autoPlay
             muted
             loop
@@ -94,6 +109,9 @@ function HomePage() {
             preload="metadata"
             poster={heroPoster}
             tabIndex={-1}
+            onLoadedData={() => setHeroVideoPlaying(true)}
+            onPlaying={() => setHeroVideoPlaying(true)}
+            onError={() => setHeroVideoPlaying(false)}
           >
             <source src="/media/nexa-brand-reel.mp4?v=20260803" type="video/mp4" />
           </video>

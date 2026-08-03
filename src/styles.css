@@ -436,16 +436,32 @@ h3 {
   height: 100%;
 }
 
+.hero-media {
+  z-index: 0;
+  background: var(--background);
+}
+
 .hero-media video,
 .hero-media img {
   object-fit: cover;
 }
 
 .hero-media img {
-  z-index: -1;
+  z-index: 0;
+}
+
+.hero-media video {
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.hero-media video.is-playing {
+  opacity: 1;
 }
 
 .hero-scrim {
+  z-index: 1;
   background:
     linear-gradient(90deg, rgb(5 5 7 / 88%) 0%, rgb(5 5 7 / 54%) 52%, rgb(5 5 7 / 22%) 100%),
     linear-gradient(0deg, var(--background) 0%, transparent 50%);
@@ -1638,7 +1654,9 @@ h3 {
   }
 
   .home-hero {
+    height: auto;
     min-height: 720px;
+    align-items: flex-start;
   }
 
   .hero-scrim {
@@ -1648,7 +1666,7 @@ h3 {
   }
 
   .hero-content {
-    padding: 135px 22px 56px;
+    padding: 168px 22px 56px;
   }
 
   .hero-content > p:not(.hero-signal),
